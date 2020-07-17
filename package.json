@@ -6,7 +6,7 @@
         "android": "react-native run-android",
         "ios": "react-native run-ios",
         "start": "react-native start",
-        "test": "jest",
+        "test": "jest --testPathPattern=/__tests__",
         "lint": "eslint .",
         "e2e:test": "npx detox test -c ios.release",
         "e2e:build": "npx detox build -c ios.release"
