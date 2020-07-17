@@ -1,0 +1,54 @@
+{
+    "name": "jestapp",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "android": "react-native run-android",
+        "ios": "react-native run-ios",
+        "start": "react-native start",
+        "test": "jest",
+        "lint": "eslint .",
+        "e2e:test": "npx detox test -c ios.release",
+        "e2e:build": "npx detox build -c ios.release"
+    },
+    "dependencies": {
+        "@testing-library/react-native": "^5.0.3",
+        "@types/detox": "^16.4.1",
+        "react": "16.11.0",
+        "react-native": "0.62.2",
+        "react-native-testing-library": "^2.1.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.10.5",
+        "@babel/runtime": "^7.10.5",
+        "@react-native-community/eslint-config": "^2.0.0",
+        "@testing-library/jest-native": "^3.1.0",
+        "@types/jest": "^26.0.4",
+        "@types/react": "^16.9.43",
+        "@types/react-native": "^0.63.1",
+        "@types/react-test-renderer": "^16.9.2",
+        "babel-jest": "^26.1.0",
+        "detox": "^17.2.0",
+        "eslint": "^7.4.0",
+        "jest": "^26.1.0",
+        "jest-circus": "^26.1.0",
+        "metro-react-native-babel-preset": "^0.60.0",
+        "react-test-renderer": "16.11.0",
+        "ts-jest": "^26.1.3",
+        "typescript": "^3.9.7"
+    },
+    "jest": {
+        "preset": "react-native"
+    },
+    "detox": {
+        "test-runner": "jest",
+        "configurations": {
+            "ios.release": {
+                "binaryPath": "./ios/build/Build/Products/Release-iphonesimulator/jestapp.app",
+                "build": "xcodebuild -workspace ios/jestapp.xcworkspace -configuration release -scheme jestapp -sdk iphonesimulator -derivedDataPath ios/build",
+                "type": "ios.simulator",
+                "name": "iPhone X"
+            }
+        }
+    }
+}
